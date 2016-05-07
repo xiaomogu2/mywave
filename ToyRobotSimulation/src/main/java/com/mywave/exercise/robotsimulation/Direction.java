@@ -27,5 +27,5 @@ public enum Direction {
 		int index = position > max ? 0 : position;
 		return Direction.values()[index];
 	}
-
+	
 }
