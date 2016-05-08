@@ -57,21 +57,22 @@ public class InputDataFactory {
 		List<RobotCommand> commands = new LinkedList<RobotCommand>();
 		for (String line : lines) {
 			line = line.toUpperCase();
-			try {
-				if (ValidationUtil.isValidCommand(line)) {
-					String cmd = line.split(" ")[0];
-					System.out.println(cmd);
-					Command command = Command.valueOf(cmd);
-					RobotCommand robotCommand = getRobotCommand(command, robot,
-							line);
-					commands.add(robotCommand);
-				} else {
-					throw new InvalidCommandException(line);
+			if (!"".equals(line.trim())) {
+				try {
+					if (ValidationUtil.isValidCommand(line)) {
+						String cmd = line.split(" ")[0];
+ 						Command command = Command.valueOf(cmd);
+						RobotCommand robotCommand = getRobotCommand(command,
+								robot, line);
+						commands.add(robotCommand);
+					} else {
+						throw new InvalidCommandException(line);
+					}
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
 				}
-			} catch (Exception e) {
-			 System.out.println(e.getMessage());
-			}
 
+			}
 		}
 		return commands;
 
