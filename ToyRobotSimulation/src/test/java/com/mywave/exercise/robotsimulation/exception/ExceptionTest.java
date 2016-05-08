@@ -47,7 +47,7 @@ public class ExceptionTest {
 		Table table = new Table();
 		Robot robot = new Robot();
 		robot.setPosition(new Position(7, 2));
-		if(!table.isOnTable(robot)){
+		if(!table.isOnTable(robot.getPosition())){
 			throw new NotOnTheTableException(Constants.NOT_ON_THE_TABLE_MSG);
 		}
 		 

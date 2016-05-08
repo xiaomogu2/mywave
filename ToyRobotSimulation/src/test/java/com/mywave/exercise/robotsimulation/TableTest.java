@@ -41,7 +41,7 @@ public class TableTest {
 		table = new Table(3, 7, 2, 2);
 		Robot robot = new Robot();
 		robot.setPosition(new Position(1, 1));
-		assertEquals(false, table.isOnTable(robot));
+		assertEquals(false, table.isOnTable(robot.getPosition()));
 	}
 	
 	@Test
@@ -49,7 +49,7 @@ public class TableTest {
 		table = new Table(3, 7, 2, 2);
 		Robot robot = new Robot();
 		robot.setPosition(new Position(1, 4));
-		assertEquals(false, table.isOnTable(robot));
+		assertEquals(false, table.isOnTable(robot.getPosition()));
 	}
 	
 	@Test
@@ -57,7 +57,7 @@ public class TableTest {
 		table = new Table(3, 7, 2, 2);
 		Robot robot = new Robot();
 		robot.setPosition(new Position(1, 10));
-		assertEquals(false, table.isOnTable(robot));
+		assertEquals(false, table.isOnTable(robot.getPosition()));
 	}
 	
 	@Test
@@ -65,7 +65,7 @@ public class TableTest {
 		table = new Table(3, 7, 2, 2);
 		Robot robot = new Robot();
 		robot.setPosition(new Position(3, 1));
-		assertEquals(false, table.isOnTable(robot));
+		assertEquals(false, table.isOnTable(robot.getPosition()));
 	}
 	
 	@Test
@@ -73,7 +73,7 @@ public class TableTest {
 		table = new Table(3, 7, 2, 2);
 		Robot robot = new Robot();
 		robot.setPosition(new Position(3, 4));
-		assertEquals(true, table.isOnTable(robot));
+		assertEquals(true, table.isOnTable(robot.getPosition()));
 	}
 	
 	@Test
@@ -81,7 +81,7 @@ public class TableTest {
 		table = new Table(3, 7, 2, 2);
 		Robot robot = new Robot();
 		robot.setPosition(new Position(3, 10));
-		assertEquals(false, table.isOnTable(robot));
+		assertEquals(false, table.isOnTable(robot.getPosition()));
 	}
 	
 	@Test
@@ -89,7 +89,7 @@ public class TableTest {
 		table = new Table(3, 7, 2, 2);
 		Robot robot = new Robot();
 		robot.setPosition(new Position(7, 1));
-		assertEquals(false, table.isOnTable(robot));
+		assertEquals(false, table.isOnTable(robot.getPosition()));
 	}
 	
 	@Test
@@ -97,7 +97,7 @@ public class TableTest {
 		table = new Table(3, 7, 2, 2);
 		Robot robot = new Robot();
 		robot.setPosition(new Position(7, 4));
-		assertEquals(false, table.isOnTable(robot));
+		assertEquals(false, table.isOnTable(robot.getPosition()));
 	}
 	
 	@Test
@@ -105,7 +105,7 @@ public class TableTest {
 		table = new Table(3, 7, 2, 2);
 		Robot robot = new Robot();
 		robot.setPosition(new Position(7, 10));
-		assertEquals(false, table.isOnTable(robot));
+		assertEquals(false, table.isOnTable(robot.getPosition()));
 	}
 	
 	@Test
@@ -113,7 +113,7 @@ public class TableTest {
 		table = new Table(3, 7, 2, 2);
 		Robot robot = new Robot();
 		robot.setPosition(new Position(2, 9));
-		assertEquals(true, table.isOnTable(robot));
+		assertEquals(true, table.isOnTable(robot.getPosition()));
 	}
 	
 	@Test
@@ -125,6 +125,6 @@ public class TableTest {
 		table.setOriginY(4);
 		Robot robot = new Robot();
 		robot.setPosition(new Position(5, 11));
-		assertEquals(true, table.isOnTable(robot));
+		assertEquals(true, table.isOnTable(robot.getPosition()));
 	}
 }

@@ -56,9 +56,8 @@ public class Table {
 		this.originY = originY;
 	}
 
-	public boolean isOnTable(Robot robot) {
-		Position position = robot.getPosition();
-		return (position.getX() >= this.originX && position.getX() <= this.originX+ this.demensionX)
+	public boolean isOnTable(Position position) {
+ 		return (position.getX() >= this.originX && position.getX() <= this.originX+ this.demensionX)
 				&& (position.getY() >= this.originY && position.getY() <= this.originY+this.demensionY);
 	}
 

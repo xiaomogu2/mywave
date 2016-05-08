@@ -4,7 +4,7 @@ public class Robot {
 
 	public final static int MOVE_FORWARD = 1;
 	public final static int MOVE_BACK = -1;
-	public static final String FORMAT =  "Ouput: %s %s\n";
+	public static final String FORMAT =  "Ouput: %s%s\n";
 			
 	private Position position;
 	private Direction direction;
@@ -87,5 +87,10 @@ public class Robot {
 
 	public void setDirection(Direction direction) {
 		this.direction = direction;
+	}
+
+	public void reset() {
+		this.direction =null;
+		position = null;
 	}
 }
