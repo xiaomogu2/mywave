@@ -47,6 +47,23 @@ public class Robot {
 			break;
 		}
 	}
+	
+	public void rollBackMove() {
+		switch (direction) {
+		case WEST:
+			move(MOVE_FORWARD, 0);
+			break;
+		case NORTH:
+			move(0, MOVE_BACK);
+			break;
+		case EAST:
+			move(MOVE_BACK, 0);
+			break;
+		case SOUTH:
+			move(0, MOVE_FORWARD);
+			break;
+		}
+	}
 
 	private void move(int xMove, int yMove) {
 		int xCurrent = position.getX();
