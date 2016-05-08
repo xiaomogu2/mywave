@@ -11,6 +11,7 @@ import com.mywave.exercise.robotsimulation.commands.MoveCommand;
 import com.mywave.exercise.robotsimulation.commands.PlaceCommand;
 import com.mywave.exercise.robotsimulation.commands.ReportCommand;
 import com.mywave.exercise.robotsimulation.commands.RobotCommand;
+import com.mywave.exercise.robotsimulation.factory.InputData;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,12 +20,14 @@ public class GameTest {
 	private Game game;
 	private InputData inputData;
 	private Table table;
+	private Robot robot;
 	private List<RobotCommand> robotCommands;
 	
 	@Before
 	public void setup(){
 		table = new Table();
 		inputData = new InputData();
+		robot = new Robot();
 		robotCommands = new LinkedList<RobotCommand>();
 		inputData.setRobotCommands(robotCommands);
 		
@@ -33,14 +36,14 @@ public class GameTest {
 	@Test
 	public void testGetter(){
 		 
-  		game = new Game(inputData, table);
+  		game = new Game(inputData, table,robot);
   		game.setInputData(null);
 		assertEquals(null, game.getInputData());
 		game.setTable(null);
 		assertEquals(null, game.getTable());
-		assertEquals(true, game.getRobot() ==null);
-		game.setRobot(new Robot());
 		assertEquals(false, game.getRobot() ==null);
+		game.setRobot(null);
+		assertEquals(true, game.getRobot() ==null);
 	}
 	
 	@Test
@@ -51,7 +54,7 @@ public class GameTest {
  		robotCommands.add(new PlaceCommand(robot, position, direction));
  		robotCommands.add(new MoveCommand(robot));
 		robotCommands.add(new ReportCommand(robot));
-  		game = new Game(inputData, table);
+		game = new Game(inputData, table,robot);
 		game.play();
 		assertEquals("0,1,", robot.getPosition().toString());
 		assertEquals(Direction.NORTH, robot.getDirection());
@@ -65,7 +68,7 @@ public class GameTest {
  		robotCommands.add(new PlaceCommand(robot, position, direction));
  		robotCommands.add(new LeftCommand(robot));
 		robotCommands.add(new ReportCommand(robot));
-  		game = new Game(inputData, table);
+		game = new Game(inputData, table,robot);
 		game.play();
 		assertEquals("0,0,", robot.getPosition().toString());
 		assertEquals(Direction.WEST, robot.getDirection());
@@ -82,7 +85,7 @@ public class GameTest {
  		robotCommands.add(new LeftCommand(robot));
  		robotCommands.add(new MoveCommand(robot));
 		robotCommands.add(new ReportCommand(robot));
-  		game = new Game(inputData, table);
+		game = new Game(inputData, table,robot);
 		game.play();
 		assertEquals("3,3,", robot.getPosition().toString());
 		assertEquals(Direction.NORTH, robot.getDirection());
@@ -98,7 +101,7 @@ public class GameTest {
  		robotCommands.add(new MoveCommand(robot));
  		robotCommands.add(new MoveCommand(robot));
 		robotCommands.add(new ReportCommand(robot));
-  		game = new Game(inputData, table);
+		game = new Game(inputData, table,robot);
 		game.play();
 		assertEquals("4,5,", robot.getPosition().toString());
 		assertEquals(Direction.NORTH, robot.getDirection());
@@ -117,7 +120,7 @@ public class GameTest {
  		robotCommands.add(new PlaceCommand(robot,position,direction));
  		robotCommands.add(new MoveCommand(robot));
 		robotCommands.add(new ReportCommand(robot));
-  		game = new Game(inputData, table);
+		game = new Game(inputData, table,robot);
 		game.play();
 		assertEquals(null, robot.getPosition());
 		assertEquals(null, robot.getDirection());
@@ -139,7 +142,7 @@ public class GameTest {
  		robotCommands.add(new PlaceCommand(robot,position,direction));
  		robotCommands.add(new MoveCommand(robot));
 		robotCommands.add(new ReportCommand(robot));
-  		game = new Game(inputData, table);
+		game = new Game(inputData, table,robot);
 		game.play();
 		assertEquals("2,3,", robot.getPosition().toString());
 		assertEquals(Direction.NORTH, robot.getDirection());
@@ -163,7 +166,8 @@ public class GameTest {
  		robotCommands.add(new MoveCommand(robot));
  		robotCommands.add(new MoveCommand(robot));
  		robotCommands.add(new LeftCommand(robot));
-  		game = new Game(inputData, table);
+ 		robotCommands.add(new ReportCommand(robot));
+ 		game = new Game(inputData, table,robot);
 		game.play();
 		assertEquals("2,5,", robot.getPosition().toString());
 		assertEquals(Direction.WEST, robot.getDirection());

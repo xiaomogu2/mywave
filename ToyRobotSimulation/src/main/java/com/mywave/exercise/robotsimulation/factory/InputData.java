@@ -1,4 +1,4 @@
-package com.mywave.exercise.robotsimulation;
+package com.mywave.exercise.robotsimulation.factory;
 
 import java.util.List;
 

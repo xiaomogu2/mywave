@@ -8,4 +8,5 @@ public class Constants {
 	public static final int ORIGIN_Y = 0;
 	public static final String ROBOT_FALLING_MSG ="Ouch!! Robot will fall from the table.";
 	public static final String NOT_ON_THE_TABLE_MSG ="Robot is not on the table yet.";
+	public static final String INVALID_COMMAND_MSG ="Invalid command,please check";
 }

@@ -8,6 +8,7 @@ import com.mywave.exercise.robotsimulation.commands.PlaceCommand;
 import com.mywave.exercise.robotsimulation.commands.RobotCommand;
 import com.mywave.exercise.robotsimulation.exception.FirstValidCommandException;
 import com.mywave.exercise.robotsimulation.exception.NotOnTheTableException;
+import com.mywave.exercise.robotsimulation.factory.InputData;
 import com.mywave.exercise.robotsimulation.finals.Constants;
 
 public class Game {
@@ -18,9 +19,11 @@ public class Game {
 	private Robot robot;
 	private boolean gameInProgress = false;
 
-	public Game(InputData inputData, Table table) {
+	public Game(InputData inputData, Table table, Robot robot) {
+		super();
 		this.inputData = inputData;
 		this.table = table;
+		this.robot = robot;
 	}
 
 	public void play() {
@@ -36,8 +39,7 @@ public class Game {
 
 	private void executeCommands() {
 		for (RobotCommand robotCommand : robotCommands) {
-			robot = robotCommand.getRobot();
-			if (isValidCmd(robotCommand)) {
+ 			if (isValidCmd(robotCommand)) {
 				robotCommand.execute();
 				checkMove(robotCommand);
 			}
@@ -46,8 +48,7 @@ public class Game {
 	}
 
 	private void checkMove(RobotCommand robotCommand) {
-		Robot robot = robotCommand.getRobot();
-		if (isMoveCmd(robotCommand) && !isOnTable(robot.getPosition())) {
+ 		if (isMoveCmd(robotCommand) && !isOnTable(robot.getPosition())) {
 			try {
 				throw new NotOnTheTableException(Constants.ROBOT_FALLING_MSG);
 			} catch (NotOnTheTableException e) {
