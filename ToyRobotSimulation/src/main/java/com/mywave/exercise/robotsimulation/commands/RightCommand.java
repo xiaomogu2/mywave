@@ -9,7 +9,7 @@ public class RightCommand extends RobotCommand {
  	}
 
 	@Override
-	protected void execute() {
+	public void execute() {
 		robot.right();
 	}
 

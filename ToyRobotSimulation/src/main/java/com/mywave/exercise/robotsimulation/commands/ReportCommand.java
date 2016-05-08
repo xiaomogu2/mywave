@@ -9,7 +9,7 @@ public class ReportCommand extends RobotCommand {
  	}
 
 	@Override
-	protected void execute() {
+	public void execute() {
 		robot.report();
 	}
 

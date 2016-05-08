@@ -16,7 +16,7 @@ public class PlaceCommand extends RobotCommand {
 	}
 
 	@Override
-	protected void execute() {
+	public void execute() {
 		robot.place(position, direction);
 	}
 

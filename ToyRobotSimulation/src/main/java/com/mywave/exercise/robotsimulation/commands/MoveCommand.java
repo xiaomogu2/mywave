@@ -9,7 +9,7 @@ public class MoveCommand extends RobotCommand {
  	}
 
 	@Override
-	protected void execute() {
+	public void execute() {
 		robot.move();
 	}
 

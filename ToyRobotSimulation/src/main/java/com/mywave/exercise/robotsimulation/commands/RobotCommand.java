@@ -10,7 +10,7 @@ public abstract class RobotCommand {
  		this.robot = robot;
 	}
 	
-	protected abstract void execute();
+	public abstract void execute();
 
 	public Robot getRobot() {
 		return robot;
