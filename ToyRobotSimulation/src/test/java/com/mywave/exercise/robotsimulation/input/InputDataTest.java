@@ -11,8 +11,6 @@ import com.mywave.exercise.robotsimulation.Command;
 import com.mywave.exercise.robotsimulation.Direction;
 import com.mywave.exercise.robotsimulation.Position;
 import com.mywave.exercise.robotsimulation.Robot;
-import com.mywave.exercise.robotsimulation.factory.InputData;
-import com.mywave.exercise.robotsimulation.factory.InputDataFactory;
 
 import static org.junit.Assert.assertEquals;
 

@@ -7,22 +7,23 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 
-import com.mywave.exercise.robotsimulation.factory.InputData;
-import com.mywave.exercise.robotsimulation.factory.InputDataFactory;
+import com.mywave.exercise.robotsimulation.input.InputData;
+import com.mywave.exercise.robotsimulation.input.InputDataFactory;
 
 public class ToyRobotSimulation {
 	
 	public static void main(String[] args) {
-		//create robot
+		// create robot
 		Robot robot = new Robot();
-		
+
 		//create commands from file
-		List<String> lines = getCommandsStr(args);
 		System.out.println("=================Commands initialized=================");
+		List<String> lines = getCommandsStr(args);
 		
 		InputDataFactory factory = new InputDataFactory();
 		InputData inputData =factory.createInputData(lines, robot);
 		
+		System.out.println("=================Game Started=================");
 		//create table;
 		Table table = new Table();
 		

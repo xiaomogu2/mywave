@@ -11,7 +11,7 @@ import com.mywave.exercise.robotsimulation.commands.MoveCommand;
 import com.mywave.exercise.robotsimulation.commands.PlaceCommand;
 import com.mywave.exercise.robotsimulation.commands.ReportCommand;
 import com.mywave.exercise.robotsimulation.commands.RobotCommand;
-import com.mywave.exercise.robotsimulation.factory.InputData;
+import com.mywave.exercise.robotsimulation.input.InputData;
 
 import static org.junit.Assert.assertEquals;
 

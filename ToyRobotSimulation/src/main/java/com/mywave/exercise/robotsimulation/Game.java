@@ -8,8 +8,8 @@ import com.mywave.exercise.robotsimulation.commands.PlaceCommand;
 import com.mywave.exercise.robotsimulation.commands.RobotCommand;
 import com.mywave.exercise.robotsimulation.exception.FirstValidCommandException;
 import com.mywave.exercise.robotsimulation.exception.NotOnTheTableException;
-import com.mywave.exercise.robotsimulation.factory.InputData;
 import com.mywave.exercise.robotsimulation.finals.Constants;
+import com.mywave.exercise.robotsimulation.input.InputData;
 
 public class Game {
 
@@ -40,6 +40,7 @@ public class Game {
 	private void executeCommands() {
 		for (RobotCommand robotCommand : robotCommands) {
  			if (isValidCmd(robotCommand)) {
+				System.out.println(currentCmd(robotCommand));
 				robotCommand.execute();
 				checkMove(robotCommand);
 			}
@@ -85,7 +86,7 @@ public class Game {
 			gameInProgress = false;
 			robot.reset();
 		} catch (FirstValidCommandException e) {
-			System.out.println(e.getMessage());
+			System.out.println(currentCmd(robotCommand)+" "+e.getMessage());
 			gameInProgress = false;
 			robot.reset();
 		}
@@ -129,4 +130,7 @@ public class Game {
 		this.robot = robot;
 	}
 
+	private String currentCmd(RobotCommand robotCommand){
+		return robotCommand.getClass().getSimpleName();
+	}
 }
