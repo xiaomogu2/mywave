@@ -131,6 +131,6 @@ public class Game {
 	}
 
 	private String currentCmd(RobotCommand robotCommand){
-		return robotCommand.getClass().getSimpleName();
+		return "Current: "+robotCommand.getClass().getSimpleName();
 	}
 }
