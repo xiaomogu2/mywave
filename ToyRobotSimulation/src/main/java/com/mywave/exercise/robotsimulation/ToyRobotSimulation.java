@@ -18,6 +18,7 @@ public class ToyRobotSimulation {
 		
 		//create commands from file
 		List<String> lines = getCommandsStr(args);
+		System.out.println("=================Commands initialized=================");
 		
 		InputDataFactory factory = new InputDataFactory();
 		InputData inputData =factory.createInputData(lines, robot);
@@ -28,12 +29,13 @@ public class ToyRobotSimulation {
 		//create game
 		Game game = new Game(inputData, table, robot);
 		game.play();
+		System.out.println("=================Done=================");
 	}
 	
 	private static List<String> getCommandsStr(String[] args){
 		String path = "./file/commands.txt";
 		if(args!=null && args.length >0){
-			path = args[1];
+			path = args[0];
 		}
 		
 		List<String> lines = new LinkedList<String>();
@@ -41,6 +43,9 @@ public class ToyRobotSimulation {
 			lines = FileUtils.readLines(new File(path));
 		} catch (IOException e) {
 			 System.out.println(e.getMessage());
+			 path = "./file/commands.txt";
+			 System.out.println("Default file is used.");
+					 
 		}
 		return lines;
 	}
